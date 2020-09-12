@@ -17,7 +17,7 @@ public class FileHandler {
           ClassLoader classLoader = getClass().getClassLoader();
           files[i] = new File(Objects.requireNonNull(classLoader.getResource(args[i])).getFile());
         } catch (NullPointerException nullPointerException) {
-          System.err.println("src/" + args[i] + "Is not a valid file");
+          System.err.println(args[i] + " Is not a valid file");
         }
       }
     }
