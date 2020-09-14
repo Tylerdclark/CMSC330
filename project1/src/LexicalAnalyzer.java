@@ -1,17 +1,11 @@
-import javax.swing.*;
 import java.io.*;
 
 public class LexicalAnalyzer {
     private final StreamTokenizer tokenizer;
-    private Reader reader;
     private int tokenCounter = 0;
 
-    public LexicalAnalyzer(File currentFile) {
-        try {
-            reader = new BufferedReader(new FileReader(currentFile));
-        } catch (FileNotFoundException fnf) {
-            JOptionPane.showMessageDialog(JOptionPane.getRootFrame(), fnf.getMessage());
-        }
+    public LexicalAnalyzer(File currentFile) throws FileNotFoundException {
+        Reader reader = new BufferedReader(new FileReader(currentFile));
         tokenizer = new StreamTokenizer(reader);
         tokenizer.ordinaryChar('.');
         tokenizer.quoteChar('"');
@@ -21,21 +15,21 @@ public class LexicalAnalyzer {
         return tokenizer.sval;
     }
 
-    public double getNumberValue() {
-        return tokenizer.nval;
+    public int getNumberValue() {
+        return (int) tokenizer.nval;
     }
 
     public int getLineNumber() {
         return tokenizer.lineno();
     }
-    public int getTokenCounter(){
+
+    public int getTokenCounter() {
         return this.tokenCounter;
     }
 
     public Token getNext() throws IOException {
         int nextToken = tokenizer.nextToken();
         tokenCounter++;
-        System.out.println(tokenizer);
         switch (nextToken) {
             case StreamTokenizer.TT_NUMBER:
                 return Token.NUMBER;
