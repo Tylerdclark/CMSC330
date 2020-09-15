@@ -12,6 +12,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+
 /**
  * This class contain the constructor and methods for the File Handler. It tries to resolve the
  * String arguments into files before analyzing, parsing and creating GUIs from the contents.
@@ -20,9 +22,9 @@ import java.nio.file.Paths;
  */
 public class FileHandler {
 
-    private File[] files;
-    private LexicalAnalyzer[] analyzers;
-    private JFrame[] jFrames;
+    private ArrayList<File> files;
+    private ArrayList<LexicalAnalyzer> analyzers;
+    private ArrayList<JFrame> jFrames;
 
     /**
      * Creates a constructor that will attempt to resolve the file paths of the supplied arguments
@@ -31,13 +33,19 @@ public class FileHandler {
      * @param args array of strings representing files
      */
     public FileHandler(String[] args) {
-
+        files = new ArrayList<>();
+        analyzers = new ArrayList<>();
+        jFrames = new ArrayList<>();
         if (args.length == 0) {
             System.out.println("no arguments were given.");
         } else {
-            files = new File[args.length];
             for (int i = 0; i <= args.length - 1; i++) {
-                files[i] = pathResolver(args[i]);
+                File newFile = pathResolver(args[i]);
+                if (newFile.exists()) {
+                    files.add(newFile);
+                } else {
+                    System.out.println(args[i] + " is not a valid file or path");
+                }
             }
         }
     }
@@ -47,12 +55,12 @@ public class FileHandler {
      * FileNotFoundException} when {@link LexicalAnalyzer} is passed a file that does not exist.
      */
     private void analyzeFiles() {
-        analyzers = new LexicalAnalyzer[this.files.length];
-        for (int i = 0; i <= this.files.length - 1; i++) {
+        // analyzers = new LexicalAnalyzer[this.files.size()];
+        for (File file : this.files) {
             try {
-                analyzers[i] = new LexicalAnalyzer(files[i]);
+                this.analyzers.add(new LexicalAnalyzer(file));
             } catch (FileNotFoundException e) {
-                System.err.println(this.files[i] + " Is not a valid file");
+                System.err.println(this.files + " Is not a valid file");
             }
         }
     }
@@ -61,13 +69,13 @@ public class FileHandler {
      * with the analyzer. Will catch issues with StreamToken and any {@link SyntaxError} errors.
      */
     private void passAnalyzers() {
-        jFrames = new JFrame[analyzers.length];
-        for (int i = 0; i <= analyzers.length - 1; i++) {
+        // jFrames = new JFrame[analyzers.length];
+        for (LexicalAnalyzer analyzer : this.analyzers) {
             JFrame result;
             try {
-                Parser parser = new Parser(analyzers[i]);
+                Parser parser = new Parser(analyzer);
                 result = parser.run();
-                jFrames[i] = result;
+                jFrames.add(result);
             } catch (IOException ioException) {
                 System.err.println("Issue with StreamTokenizer");
             } catch (SyntaxError syntaxError) {
@@ -86,18 +94,17 @@ public class FileHandler {
      */
     private File pathResolver(String argument) {
 
-        File srcDirFile;
+        File srcDir;
         File projectDir;
         File lastDir;
 
         try {
-            srcDirFile =
-                    new File(Paths.get("project1/src/" + argument).toAbsolutePath().toString());
-            projectDir = new File(Paths.get("src/" + argument).toAbsolutePath().toString());
+            srcDir = new File(Paths.get("project1/test/" + argument).toAbsolutePath().toString());
+            projectDir = new File(Paths.get("test/" + argument).toAbsolutePath().toString());
             lastDir = new File(Paths.get(argument).toAbsolutePath().toString());
 
-            if (srcDirFile.exists()) {
-                return srcDirFile;
+            if (srcDir.exists()) {
+                return srcDir;
             } else if (projectDir.exists()) {
                 return projectDir;
             } else if (lastDir.exists()) {
@@ -115,17 +122,11 @@ public class FileHandler {
      * the local array {@link #jFrames}
      */
     public void runGUIs() {
-        if (files != null) {
-            analyzeFiles();
-            if (analyzers != null) {
-                passAnalyzers();
-            }
-            if (jFrames != null) {
-                for (JFrame frame : jFrames) {
-                    frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-                    frame.setVisible(true);
-                }
-            }
+        analyzeFiles();
+        passAnalyzers();
+        for (JFrame frame : jFrames) {
+            frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+            frame.setVisible(true);
         }
     }
 }
