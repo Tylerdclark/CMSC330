@@ -34,5 +34,5 @@ public enum Token {
     LEFT_PAREN,
     RIGHT_PAREN,
     EOF,
-    UNKNOWN;
+    UNKNOWN
 }
