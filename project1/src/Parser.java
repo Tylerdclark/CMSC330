@@ -33,7 +33,7 @@ public class Parser {
      */
     public Parser(LexicalAnalyzer lexer) {
         this.lexer = lexer;
-        System.out.println("Parsing "+this.lexer.getFile()+"...");
+        System.out.println("Parsing " + this.lexer.getFile() + "...");
     }
 
     /**

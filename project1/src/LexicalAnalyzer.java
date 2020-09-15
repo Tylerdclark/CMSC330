@@ -15,8 +15,8 @@ import java.io.*;
  */
 public class LexicalAnalyzer {
     private final StreamTokenizer tokenizer;
+    private final File file;
     private int tokenCounter = 0;
-    private File file;
     /**
      * Creates a constructor that which will call several methods involved in traversing and
      * receiving data from the source file
@@ -25,17 +25,16 @@ public class LexicalAnalyzer {
      * @param currentFile - File to be parsed and GUI to be created from
      */
     public LexicalAnalyzer(File currentFile) throws FileNotFoundException {
-        if (currentFile.exists()){
+        if (currentFile.exists()) {
             file = currentFile;
-            System.out.println("Analyzing "+ currentFile+ "...");
+            System.out.println("Analyzing " + currentFile + "...");
             Reader reader = new BufferedReader(new FileReader(currentFile));
             tokenizer = new StreamTokenizer(reader);
             tokenizer.ordinaryChar('.');
             tokenizer.quoteChar('"');
-        }else {
+        } else {
             throw new FileNotFoundException();
         }
-
     }
     /**
      * Retrieves the next token from the StreamTokenizer and keeps count of the number of Tokens.
