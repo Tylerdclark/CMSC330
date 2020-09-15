@@ -1,0 +1,21 @@
+Window "Panel-Radio-Label-Group" (230, 285) Layout Flow:
+Panel Layout Grid(5,1):
+Button "Grid button";
+Label "Label";
+Textfield 10;
+Panel Layout Flow:
+Button "Flow button";
+End;
+End;
+Panel Layout Flow:
+Panel Layout Grid(1, 5, 5, 5):
+Group
+Radio "1" ;
+Radio "2" ;
+Radio "3";
+Radio "4" ;
+Radio "5" ;
+End;
+End;
+End;
+End.
