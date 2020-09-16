@@ -3,6 +3,8 @@
 **Author:** Tyler D Clark  
 **Date:** 15 September 2020
 
+[I got a 95%  with this. Feedback was that passing input file as a parameter of the main() method is not a good practice. 🤷🏽‍♂️]
+
 **Description** A program that reads and parses a GUI definition language from text files. The program uses recursive descent to parse the language before building and creating the GUIs. This program uses command-line arguments to to pass the name of the input files to the program.
 ___
 
