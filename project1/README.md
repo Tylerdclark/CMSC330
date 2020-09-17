@@ -36,7 +36,7 @@ project1
 
 ## Project UML
 
-![Class UML](img/project1UML.png)
+![Class UML](doc/img/project1UML.png)
 
 ## Running the Program
 
@@ -53,7 +53,7 @@ Then, run main with java and pass the input file:
 java Main ../test/input.txt
 ```
 
-![Screenshot of running program](img/ss1.png)
+![Screenshot of running program](doc/img/ss1.png)
 
 or pass multiple files to test:
 
@@ -63,7 +63,7 @@ java Main ../test/input.txt ../test/input2.txt
 
 **Note:** If running from an IDE, can pass command-line arguments to main, like so:
 
-![Screenshot of command line argument set up in IntelliJ](img/ss2.png)
+![Screenshot of command line argument set up in IntelliJ](doc/img/ss2.png)
 
 ## Test Cases
 
@@ -106,7 +106,7 @@ End.
 
 Screenshot (same as above):
 
-![Screenshot of running program](img/ss1.png)
+![Screenshot of running program](doc/img/ss1.png)
 
 This test cases confirms that Windows can ge be generated, but also that Panels, Grid layout, Flow layout, Textfield and Buttons are working correctly.
 
@@ -138,7 +138,7 @@ End;
 End.
 ```
 
-![Screenshot of running program](img/ss3.png)
+![Screenshot of running program](doc/img/ss3.png)
 
 ### Case #3
 
@@ -165,7 +165,7 @@ End.
 
 **Note** the semi-colon after Flow instead of the correct colon.
 
-![Screenshot of displaying error](img/ss4.png)
+![Screenshot of displaying error](doc/img/ss4.png)
 
 ## Lessons learned / Conclusion
 
