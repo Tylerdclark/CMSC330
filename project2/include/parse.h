@@ -5,4 +5,6 @@
 #ifndef PROJECT2_PARSE_H
 #define PROJECT2_PARSE_H
 
+string parseName();
+
 #endif //PROJECT2_PARSE_H
