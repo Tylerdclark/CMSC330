@@ -15,7 +15,7 @@ using namespace std;
 
 extern SymbolTable symbolTable;
 
-double Variable::evaluate()
+int Variable::evaluate()
 {
     return symbolTable.lookUp(name);
 }

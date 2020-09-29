@@ -8,11 +8,11 @@
 class Literal: public Operand
 {
 public:
-    Literal(int value)
+    Literal(double value)
     {
         this->value = value;
     }
-    double evaluate()
+    int evaluate()
     {
         return value;
     }
