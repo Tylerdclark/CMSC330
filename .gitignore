@@ -7,3 +7,5 @@ project1/project1.iml
 .idea/
 
 out/
+
+project2/cmake-build-debug/
