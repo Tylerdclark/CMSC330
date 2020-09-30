@@ -5,7 +5,6 @@
 #include <strstream>
 #include <vector>
 
-
 using namespace std;
 
 #include "expression.h"
@@ -15,7 +14,6 @@ using namespace std;
 
 extern SymbolTable symbolTable;
 
-int Variable::evaluate()
-{
+int Variable::evaluate() {
     return symbolTable.lookUp(name);
 }
