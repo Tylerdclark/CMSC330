@@ -19,4 +19,4 @@ add_executable(project2
         include/symboltable.h
         src/symboltable.cpp 
         include/parse.h
-        src/parse.cpp include/minus.h include/times.h include/divide.h include/and.h include/greaterthan.h include/lessthan.h include/equalto.h include/or.h)
+        src/parse.cpp include/minus.h include/times.h include/divide.h include/and.h include/greaterthan.h include/lessthan.h include/equalto.h include/or.h include/negate.h)
