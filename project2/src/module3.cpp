@@ -5,7 +5,6 @@
 #include <iostream>
 #include <string>
 #include <vector>
-using namespace std;
 
 #include "expression.h"
 #include "subexpression.h"
@@ -20,24 +19,24 @@ int main()
 {
     Expression* expression;
     char paren, comma;
-    cout << "Enter expression: ";
-    cin >> paren;
+    std::cout << "Enter expression: ";
+    std::cin >> paren;
     expression = SubExpression::parse();
-    cin >> comma;
+    std::cin >> comma;
     parseAssignments();
-    cout << "Value = " << expression->evaluate() << endl;
+    std::cout << "Value = " << expression->evaluate() << std::endl;
     return 0;
 }
 
 void parseAssignments()
 {
     char assignop, delimiter;
-    string variable;
+    std::string variable;
     double value;
     do
     {
         variable = parseName();
-        cin >> ws >> assignop >> value >> delimiter;
+        std::cin >> std::ws >> assignop >> value >> delimiter;
         symbolTable.insert(variable, value);
     }
     while (delimiter == ',');
