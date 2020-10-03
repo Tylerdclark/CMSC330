@@ -61,3 +61,45 @@ For the above parse tree, I used the website: http://mshang.ca/syntree/ with the
     ]
 ]
 ```
+
+## follow up questions
+
+### prompt
+
+Thanks, Tyler.
+
+Related questions :  how such trees will be used by a compiler  ?
+
+What would be included in the first pass of most compilers of a fully compiled language? 
+
+Class,
+
+Welcome to share.
+
+### answer
+
+Professor,
+
+The trees are used by the compiler to check for correctness. They make sure the input "fits" into the defined grammar rules. Further, later it is used to generate immediate code. That immediate code is what is included in the first pass of most fully compiled languages.
+
+-Tyler C.
+
+### other prompt
+
+Thanks you, Eric.
+
+Eric and Class,
+
+ A general question:
+
+ there are two basic approaches to parsing : top-down and bottom-up.
+
+How do they differ? Which one  is most common and why ? Your thoughts?
+
+### other answer
+
+Professor,
+
+To answer your question:
+
+According to our Formal Syntax and Semantics module, top-down has the benefit of being simple and easy to understand, but suffers when it comes to left-recursion and arithmetic expressions. Bottom-up parsing, like [yacc](http://dinosaur.compilertools.net/yacc/) are more powerful, efficient, and accept more grammars but are much less intuitive. As a result, bottom-up tends to be more prevalent.
