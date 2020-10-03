@@ -1,3 +1,3 @@
-# Advanced Programming languages
+# Advanced Programming languages CMSC330 @ UMGC
 
-A collection of my projects and answers to the discussions of the class.
+A collection of my projects and answers to the discussions of the class. 
