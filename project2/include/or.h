@@ -4,6 +4,7 @@
 
 #ifndef PROJECT2_OR_H
 #define PROJECT2_OR_H
+
 class Or: public SubExpression
 {
 public:

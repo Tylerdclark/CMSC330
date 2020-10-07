@@ -11,7 +11,7 @@ public:
     EqualTo(Expression* left, Expression* right): SubExpression(left, right)
     {
     }
-    int evaluate()
+    int evaluate() override
     {
         return left->evaluate() == right->evaluate();
     }
