@@ -5,6 +5,6 @@
 #ifndef PROJECT2_PARSE_H
 #define PROJECT2_PARSE_H
 
-string parseName();
+std::string parseName();
 
 #endif //PROJECT2_PARSE_H
