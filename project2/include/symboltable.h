@@ -5,23 +5,25 @@
 #ifndef PROJECT2_SYMBOLTABLE_H
 #define PROJECT2_SYMBOLTABLE_H
 
+#include <string>
+
 class SymbolTable
 {
 public:
     SymbolTable() {}
-    void insert(string variable, double value);
-    double lookUp(string variable) const;
+    void insert(std::string variable, double value);
+    double lookUp(std::string variable) const;
 private:
     struct Symbol
     {
-        Symbol(string variable, double value)
+        Symbol(std::string variable, double value)
         {
             this->variable = variable;
             this->value = value;
         }
-        string variable;
+        std::string variable;
         double value;
     };
-    vector <Symbol> elements;
+    std::vector <Symbol> elements;
 };
 #endif //PROJECT2_SYMBOLTABLE_H
