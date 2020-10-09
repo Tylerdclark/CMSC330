@@ -8,7 +8,7 @@
 class Operand: public Expression
 {
 public:
-    static Expression* parse();
+    static Expression* parse(std::stringstream& in);
 };
 
 #endif //PROJECT2_OPERAND_H
