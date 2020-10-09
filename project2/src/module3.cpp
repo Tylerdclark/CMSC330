@@ -5,7 +5,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
-
+#include <sstream>
+#include <fstream>
 #include "expression.h"
 #include "subexpression.h"
 #include "symboltable.h"
@@ -13,22 +14,35 @@
 
 SymbolTable symbolTable;
 
-void parseAssignments();
+void parseAssignments(std::stringstream& in);
 
 int main()
 {
+    std::ifstream file("../input.txt");
     Expression* expression;
     char paren, comma;
-    std::cout << "Enter expression: ";
-    std::cin >> paren;
-    expression = SubExpression::parse();
-    std::cin >> comma;
-    parseAssignments();
-    std::cout << "Value = " << expression->evaluate() << std::endl;
+    if (file.is_open()){
+        std::string line;
+        while (std::getline(file, line)) {
+            printf("%s \n", line.c_str());
+            std::stringstream in(line, std::ios_base::in);
+            in >> paren;
+            std::cout << line << " ";
+            expression = SubExpression::parse(in);
+            in >> comma;
+            parseAssignments(in);
+            double result = expression->evaluate();
+            std::cout << "Value = " << result << std::endl;
+            symbolTable.reset();
+
+        }
+        file.close();
+
+    }
     return 0;
 }
 
-void parseAssignments()
+void parseAssignments(std::stringstream& in)
 {
     char assignop, delimiter;
     std::string variable;
