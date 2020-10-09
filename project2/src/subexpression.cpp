@@ -3,7 +3,7 @@
 //
 
 #include <iostream>
-#include <negate.h>
+#include <sstream>
 
 #include "expression.h"
 #include "subexpression.h"
@@ -17,6 +17,8 @@
 #include "equalto.h"
 #include "and.h"
 #include "or.h"
+#include "negate.h"
+#include "conditional.h"
 
 SubExpression::SubExpression(Expression* left)
 {
@@ -36,8 +38,7 @@ SubExpression::SubExpression(Expression *left, Expression *right, Expression *co
 }
 
 Expression *SubExpression::parse(std::stringstream& in) {
-    Expression *left;
-    Expression *right;
+    Expression *left, *right, *condition;
     char operation, paren, query;
 
     left = Operand::parse(in);
