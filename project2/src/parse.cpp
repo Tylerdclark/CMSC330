@@ -8,6 +8,7 @@
 */
 
 #include <cctype>
+#include <sstream>
 #include <iostream>
 #include <string>
 
@@ -26,9 +27,9 @@ std::string parseName(std::stringstream& in)
     std::string name = "";
 
     in >> std::ws;
-    while (isalnum(std::cin.peek()))
+    while (isalnum(in.peek()))
     {
-        std::cin >> alnum;
+        in >> alnum;
         name += alnum;
     }
     return name;
