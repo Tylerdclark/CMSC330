@@ -6,7 +6,6 @@
 #include <iostream>
 #include <sstream>
 #include <list>
-#include <string>
 
 
 #include "expression.h"
@@ -24,6 +23,7 @@ Expression* Operand::parse(std::stringstream& in)
     in >> std::ws;
     if (isdigit(in.peek()))
     {
+
         in >> value;
         Expression* literal = new Literal(value);
         return literal;
@@ -31,9 +31,8 @@ Expression* Operand::parse(std::stringstream& in)
     if (in.peek() == '(')
     {
         in >> paren;
-        return SubExpression::parse();
+        return SubExpression::parse(in);
     }
     else
-        return new Variable(parseName());
-    return 0;
+        return new Variable(parseName(in));
 }
