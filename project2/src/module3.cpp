@@ -24,8 +24,7 @@ int main()
     if (file.is_open()){
         std::string line;
         while (std::getline(file, line)) {
-            printf("%s \n", line.c_str());
-            std::stringstream in(line, std::ios_base::in);
+            std::stringstream in(line);
             in >> paren;
             std::cout << line << " ";
             expression = SubExpression::parse(in);
@@ -49,7 +48,7 @@ void parseAssignments(std::stringstream& in)
     double value;
     do
     {
-        variable = parseName();
+        variable = parseName(in);
         in >> std::ws >> assignop >> value >> delimiter;
         symbolTable.insert(variable, value);
     }
