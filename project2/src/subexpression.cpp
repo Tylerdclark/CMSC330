@@ -3,8 +3,7 @@
 //
 
 #include <iostream>
-
-using namespace std;
+#include <negate.h>
 
 #include "expression.h"
 #include "subexpression.h"
@@ -19,20 +18,45 @@ using namespace std;
 #include "and.h"
 #include "or.h"
 
+SubExpression::SubExpression(Expression* left)
+{
+    this->left = left;
+}
+
 SubExpression::SubExpression(Expression *left, Expression *right) {
     this->left = left;
     this->right = right;
 }
 
-Expression *SubExpression::parse() {
+SubExpression::SubExpression(Expression *left, Expression *right, Expression *condition)
+{
+    this->left = left;
+    this->right = right;
+    this->condition = condition;
+}
+
+Expression *SubExpression::parse(std::stringstream& in) {
     Expression *left;
     Expression *right;
-    char operation, paren;
+    char operation, paren, query;
 
-    left = Operand::parse();
-    cin >> operation;
-    right = Operand::parse();
-    cin >> paren;
+    left = Operand::parse(in);
+    in >> operation;
+    if (operation == '!'){
+        in >> paren;
+        return new Negate(left);
+    } else if (operation == ':'){
+        right = Operand::parse(in);
+        in >> query;
+        condition = Operand::parse(in);
+        in >> paren;
+        return new Conditional(left, right, condition);
+    } else {
+        right = Operand::parse(in);
+        in >> paren;
+    }
+
+
     switch (operation) {
         case '+':
             return new Plus(left, right);
@@ -53,5 +77,5 @@ Expression *SubExpression::parse() {
         case '|':
             return new Or(left, right);
     }
-    return 0;
+    return nullptr;
 }
