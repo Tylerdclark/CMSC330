@@ -7,7 +7,6 @@
 #include <list>
 #include <string>
 
-using namespace std;
 
 #include "expression.h"
 #include "subexpression.h"
@@ -16,21 +15,21 @@ using namespace std;
 #include "literal.h"
 #include "parse.h"
 
-Expression* Operand::parse()
+Expression* Operand::parse(std::stringstream& in)
 {
     char paren;
     double value;
 
-    cin >> ws;
-    if (isdigit(cin.peek()))
+    in >> std::ws;
+    if (isdigit(in.peek()))
     {
-        cin >> value;
+        in >> value;
         Expression* literal = new Literal(value);
         return literal;
     }
-    if (cin.peek() == '(')
+    if (in.peek() == '(')
     {
-        cin >> paren;
+        in >> paren;
         return SubExpression::parse();
     }
     else
