@@ -10,9 +10,10 @@
 class SymbolTable
 {
 public:
-    SymbolTable() {}
+    SymbolTable() = default;
     void insert(std::string variable, double value);
     double lookUp(std::string variable) const;
+    void reset(){elements.clear();}
 private:
     struct Symbol
     {
@@ -27,3 +28,4 @@ private:
     std::vector <Symbol> elements;
 };
 #endif //PROJECT2_SYMBOLTABLE_H
+
