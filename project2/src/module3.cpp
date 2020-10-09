@@ -50,7 +50,7 @@ void parseAssignments(std::stringstream& in)
     do
     {
         variable = parseName();
-        std::cin >> std::ws >> assignop >> value >> delimiter;
+        in >> std::ws >> assignop >> value >> delimiter;
         symbolTable.insert(variable, value);
     }
     while (delimiter == ',');
