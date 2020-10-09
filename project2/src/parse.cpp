@@ -10,10 +10,8 @@
 #include <cctype>
 #include <iostream>
 #include <string>
-using namespace std;
 
 #include "parse.h"
-
 
 /**
     Sample summary
@@ -22,15 +20,15 @@ using namespace std;
     @return a bar code of the digit using "|" as the long
     bar and "," as the half bar.
 */
-string parseName()
+std::string parseName(std::stringstream& in)
 {
     char alnum;
-    string name = "";
+    std::string name = "";
 
-    cin >> ws;
-    while (isalnum(cin.peek()))
+    in >> std::ws;
+    while (isalnum(std::cin.peek()))
     {
-        cin >> alnum;
+        std::cin >> alnum;
         name += alnum;
     }
     return name;
