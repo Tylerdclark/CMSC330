@@ -45,7 +45,7 @@ void parseAssignments(std::stringstream& in)
 {
     char assignop, delimiter;
     std::string variable;
-    double value;
+    int value;
     do
     {
         variable = parseName(in);
