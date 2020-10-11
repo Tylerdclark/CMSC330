@@ -6,20 +6,21 @@
 #define PROJECT2_SYMBOLTABLE_H
 
 #include <string>
+#include <utility>
 
 class SymbolTable
 {
 public:
     SymbolTable() = default;
-    void insert(std::string variable, double value);
-    double lookUp(std::string variable) const;
+    void insert(std::string variable, int value);
+    [[nodiscard]] int lookUp(const std::string& variable) const;
     void reset(){elements.clear();}
 private:
     struct Symbol
     {
-        Symbol(std::string variable, double value)
+        Symbol(std::string variable, int value)
         {
-            this->variable = variable;
+            this->variable = std::move(variable);
             this->value = value;
         }
         std::string variable;
