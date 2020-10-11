@@ -3,21 +3,21 @@
 //
 
 
+#include <utility>
 #include <vector>
-
 
 #include "symboltable.h"
 
-void SymbolTable::insert(std::string variable, double value)
+void SymbolTable::insert(std::string variable, int value)
 {
-    const Symbol &symbol = Symbol(variable, value);
+    const Symbol &symbol = Symbol(std::move(variable), value);
     elements.push_back(symbol);
 }
 
-double SymbolTable::lookUp(std::string variable) const
+int SymbolTable::lookUp(const std::string& variable) const
 {
-    for (int i = 0; i < elements.size(); i++)
-        if (elements[i].variable == variable)
-            return elements[i].value;
+    for (const auto & element : elements)
+        if (element.variable == variable)
+            return element.value;
     return -1;
 }
