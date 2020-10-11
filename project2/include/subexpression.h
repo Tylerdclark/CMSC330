@@ -17,6 +17,4 @@ protected:
     Expression* condition;
 };
 
-
-
 #endif //PROJECT2_SUBEXPRESSION_H

@@ -8,13 +8,13 @@
 class Variable: public Operand
 {
 public:
-    Variable(string name)
+    explicit Variable(std::string name)
     {
         this->name = name;
     }
-    int evaluate();
+    int evaluate() override;
 private:
-    string name;
+    std::string name;
 };
 
 #endif //PROJECT2_VARIABLE_H

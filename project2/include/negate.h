@@ -8,10 +8,10 @@
 class Negate: public SubExpression
 {
 public:
-    Negate(Expression* left): SubExpression(left)
+    explicit Negate(Expression* left): SubExpression(left)
     {
     }
-    int evaluate()
+    int evaluate() override
     {
         return !left->evaluate();
     }

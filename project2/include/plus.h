@@ -12,7 +12,7 @@ public:
             SubExpression(left, right)
     {
     }
-    int evaluate()
+    int evaluate() override
     {
         return left->evaluate() + right->evaluate();
     }
