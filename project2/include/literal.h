@@ -5,17 +5,16 @@
 #ifndef PROJECT2_LITERAL_H
 #define PROJECT2_LITERAL_H
 
-class Literal: public Operand
-{
+class Literal : public Operand {
 public:
-    Literal(int value)
-    {
+    Literal(int value) {
         this->value = value;
     }
-    int evaluate() override
-    {
+
+    int evaluate() override {
         return value;
     }
+
 private:
     int value;
 };

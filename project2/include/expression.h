@@ -5,8 +5,7 @@
 #ifndef PROJECT2_EXPRESSION_H
 #define PROJECT2_EXPRESSION_H
 
-class Expression
-{
+class Expression {
 public:
     virtual int evaluate() = 0;
 };

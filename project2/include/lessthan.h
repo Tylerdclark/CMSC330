@@ -5,14 +5,12 @@
 #ifndef PROJECT2_LESSTHAN_H
 #define PROJECT2_LESSTHAN_H
 
-class LessThan: public SubExpression
-{
+class LessThan : public SubExpression {
 public:
-    LessThan(Expression* left, Expression* right): SubExpression(left, right)
-    {
+    LessThan(Expression *left, Expression *right) : SubExpression(left, right) {
     }
-    int evaluate() override
-    {
+
+    int evaluate() override {
         return left->evaluate() < right->evaluate();
     }
 };

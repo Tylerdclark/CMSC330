@@ -5,14 +5,12 @@
 #ifndef PROJECT2_TIMES_H
 #define PROJECT2_TIMES_H
 
-class Times: public SubExpression
-{
+class Times : public SubExpression {
 public:
-    Times(Expression* left, Expression* right): SubExpression(left, right)
-    {
+    Times(Expression *left, Expression *right) : SubExpression(left, right) {
     }
-    int evaluate()
-    {
+
+    int evaluate() {
         return left->evaluate() * right->evaluate();
     }
 };

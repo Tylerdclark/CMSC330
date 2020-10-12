@@ -5,14 +5,12 @@
 #ifndef PROJECT2_MINUS_H
 #define PROJECT2_MINUS_H
 
-class Minus: public SubExpression
-{
+class Minus : public SubExpression {
 public:
-    Minus(Expression* left, Expression* right): SubExpression(left, right)
-    {
+    Minus(Expression *left, Expression *right) : SubExpression(left, right) {
     }
-    int evaluate() override
-    {
+
+    int evaluate() override {
         return left->evaluate() - right->evaluate();
     }
 };

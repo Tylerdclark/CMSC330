@@ -11,8 +11,7 @@ public:
     }
 
     int evaluate() override {
-        if (right->evaluate() != 0)
-        {
+        if (right->evaluate() != 0) {
             return left->evaluate() / right->evaluate();
         }
         return 0;
