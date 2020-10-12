@@ -9,26 +9,16 @@
 
 #include <cctype>
 #include <sstream>
-#include <iostream>
 #include <string>
 
 #include "parse.h"
 
-/**
-    Sample summary
-
-    @param digit the single digit to encode.
-    @return a bar code of the digit using "|" as the long
-    bar and "," as the half bar.
-*/
-std::string parseName(std::stringstream& in)
-{
+std::string parseName(std::stringstream &in) {
     char alnum;
     std::string name = "";
 
     in >> std::ws;
-    while (isalnum(in.peek()))
-    {
+    while (isalnum(in.peek())) {
         in >> alnum;
         name += alnum;
     }

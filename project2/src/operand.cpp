@@ -15,24 +15,20 @@
 #include "literal.h"
 #include "parse.h"
 
-Expression* Operand::parse(std::stringstream& in)
-{
+Expression *Operand::parse(std::stringstream &in) {
     char paren;
     double value;
 
     in >> std::ws;
-    if (isdigit(in.peek()))
-    {
+    if (isdigit(in.peek())) {
 
         in >> value;
-        Expression* literal = new Literal(value);
+        Expression *literal = new Literal(value);
         return literal;
     }
-    if (in.peek() == '(')
-    {
+    if (in.peek() == '(') {
         in >> paren;
         return SubExpression::parse(in);
-    }
-    else
+    } else
         return new Variable(parseName(in));
 }

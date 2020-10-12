@@ -14,14 +14,13 @@
 
 SymbolTable symbolTable;
 
-void parseAssignments(std::stringstream& in);
+void parseAssignments(std::stringstream &in);
 
-int main()
-{
+int main() {
     std::ifstream file("../input.txt");
-    Expression* expression;
+    Expression *expression;
     char paren, comma;
-    if (file.is_open()){
+    if (file.is_open()) {
         std::string line;
         while (std::getline(file, line)) {
             std::stringstream in(line);
@@ -33,24 +32,19 @@ int main()
             double result = expression->evaluate();
             std::cout << "Value = " << result << std::endl;
             symbolTable.reset();
-
         }
         file.close();
-
     }
     return 0;
 }
 
-void parseAssignments(std::stringstream& in)
-{
+void parseAssignments(std::stringstream &in) {
     char assignop, delimiter;
     std::string variable;
     int value;
-    do
-    {
+    do {
         variable = parseName(in);
         in >> std::ws >> assignop >> value >> delimiter;
         symbolTable.insert(variable, value);
-    }
-    while (delimiter == ',');
+    } while (delimiter == ',');
 }
