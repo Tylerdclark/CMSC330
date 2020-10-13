@@ -5,12 +5,15 @@
 #ifndef PROJECT2_OR_H
 #define PROJECT2_OR_H
 
-class Or : public SubExpression {
+class Or : public SubExpression
+{
 public:
-    Or(Expression *left, Expression *right) : SubExpression(left, right) {
+    Or(Expression *left, Expression *right) : SubExpression(left, right)
+    {
     }
 
-    int evaluate() override {
+    int evaluate() override
+    {
         return left->evaluate() || right->evaluate();
     }
 };

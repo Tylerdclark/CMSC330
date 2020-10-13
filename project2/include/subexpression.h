@@ -4,7 +4,8 @@
 #ifndef PROJECT2_SUBEXPRESSION_H
 #define PROJECT2_SUBEXPRESSION_H
 
-class SubExpression : public Expression {
+class SubExpression : public Expression
+{
 public:
     explicit SubExpression(Expression *left);
 

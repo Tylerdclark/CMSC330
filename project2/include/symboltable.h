@@ -8,7 +8,8 @@
 #include <string>
 #include <utility>
 
-class SymbolTable {
+class SymbolTable
+{
 public:
     SymbolTable() = default;
 
@@ -19,8 +20,10 @@ public:
     void reset() { elements.clear(); }
 
 private:
-    struct Symbol {
-        Symbol(std::string variable, int value) {
+    struct Symbol
+    {
+        Symbol(std::string variable, int value)
+        {
             this->variable = std::move(variable);
             this->value = value;
         }
@@ -33,4 +36,3 @@ private:
 };
 
 #endif //PROJECT2_SYMBOLTABLE_H
-

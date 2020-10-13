@@ -5,12 +5,15 @@
 #ifndef PROJECT2_EQUALTO_H
 #define PROJECT2_EQUALTO_H
 
-class EqualTo : public SubExpression {
+class EqualTo : public SubExpression
+{
 public:
-    EqualTo(Expression *left, Expression *right) : SubExpression(left, right) {
+    EqualTo(Expression *left, Expression *right) : SubExpression(left, right)
+    {
     }
 
-    int evaluate() override {
+    int evaluate() override
+    {
         return left->evaluate() == right->evaluate();
     }
 };

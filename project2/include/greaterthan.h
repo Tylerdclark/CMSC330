@@ -5,12 +5,15 @@
 #ifndef PROJECT2_GREATERTHAN_H
 #define PROJECT2_GREATERTHAN_H
 
-class GreaterThan : public SubExpression {
+class GreaterThan : public SubExpression
+{
 public:
-    GreaterThan(Expression *left, Expression *right) : SubExpression(left, right) {
+    GreaterThan(Expression *left, Expression *right) : SubExpression(left, right)
+    {
     }
 
-    int evaluate() override {
+    int evaluate() override
+    {
         return left->evaluate() > right->evaluate();
     }
 };
