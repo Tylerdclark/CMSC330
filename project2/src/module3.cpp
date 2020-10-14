@@ -1,6 +1,9 @@
-//
-// Created by Tyler Clark on 9/26/20.
-//
+/**
+    CMSC 330 Asn 2: Expression evaluator
+    @file module3.cpp
+    @author Tyler Clark
+    @date 10/12/20
+*/
 
 #include <iostream>
 #include <string>
@@ -18,7 +21,12 @@ void parseAssignments(std::stringstream &in);
 
 int main()
 {
-    std::ifstream file("../input.txt");
+    std::ifstream file("../input.txt"); //works in IDE
+    if (!file)
+    {
+        file = std::ifstream("input.txt"); //works in command-line
+    }
+    
     Expression *expression;
     char paren, comma;
     if (file.is_open())
@@ -37,6 +45,10 @@ int main()
             symbolTable.reset();
         }
         file.close();
+    }
+    else
+    {
+        std::cerr << "File not found. Try moving file and ensure it is named 'input.txt'.\n";
     }
     return 0;
 }
