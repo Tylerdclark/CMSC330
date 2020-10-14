@@ -58,7 +58,7 @@ To run this program, it can be done from an IDE or using the command-line and CM
 cmake .
 ```
 
-![image of the cmake running](img/ss1.png)
+![image of the cmake running](doc/img/ss1.png)
 
 then the command:
 
@@ -66,7 +66,7 @@ then the command:
 make
 ```
 
-![after make](img/ss2.png)
+![after make](doc/img/ss2.png)
 
 Lastly, the program can be run with the command:
 
@@ -74,7 +74,7 @@ Lastly, the program can be run with the command:
 ./project2
 ```
 
-![running program](img/ss3.png)
+![running program](doc/img/ss3.png)
 
 ## Test Cases
 
