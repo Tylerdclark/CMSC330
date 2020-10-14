@@ -176,8 +176,9 @@ int main()
 
 So, there are similar rules to local variables and shadowing as you can see with the example. By using the static scope and declaring outside of function, we can create a variable that is visible throughout the file. By just declaring without static, it has "global" access and can be accessed by other files as well. The above are some C rules on scoping, but there is also the topic of storage classes. Briefly:
 
-Block scope variables have temporary "auto" duration
-Static variables have permanent duration that persist after their functions have exited
-using the extern identifier creates a global variable with permanent duration
-"register" keyword allows block scope with quick register storage
+* Block scope variables have temporary "auto" duration
+* Static variables have permanent duration that persist after their functions have exited
+* using the extern identifier creates a global variable with permanent duration
+* "register" keyword allows block scope with quick register storage
+
 There is a lot more that goes into storage classes such as the individual declarations, storage location, default values and lifetime but that is outside the scope (haha) of this post.
