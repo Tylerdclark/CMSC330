@@ -1,6 +1,9 @@
-//
-// Created by Tyler Clark on 9/26/20.
-//
+/**
+    CMSC 330 Asn 2: Expression evaluator
+    @file symboltable.cpp
+    @author Tyler Clark
+    @date 10/12/20
+*/
 
 #include <utility>
 #include <vector>

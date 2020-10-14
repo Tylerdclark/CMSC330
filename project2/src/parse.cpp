@@ -1,6 +1,9 @@
-//
-// Created by Tyler Clark on 9/26/20.
-//
+/**
+    CMSC 330 Asn 2: Expression evaluator
+    @file parse.cpp
+    @author Tyler Clark
+    @date 10/12/20
+*/
 
 #include <cctype>
 #include <sstream>
@@ -11,7 +14,7 @@
 std::string parseName(std::stringstream &in)
 {
     char alnum;
-    std::string name = "";
+    std::string name;
 
     in >> std::ws;
     while (isalnum(in.peek()))

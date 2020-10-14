@@ -1,6 +1,9 @@
-//
-// Created by Tyler Clark on 9/26/20.
-//
+/**
+    CMSC 330 Asn 2: Expression evaluator
+    @file literal.h
+    @author Tyler Clark
+    @date 10/12/20
+*/
 
 #ifndef PROJECT2_LITERAL_H
 #define PROJECT2_LITERAL_H

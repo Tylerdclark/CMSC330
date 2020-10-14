@@ -1,6 +1,9 @@
-//
-// Created by Tyler Clark on 9/26/20.
-//
+/**
+    CMSC 330 Asn 2: Expression evaluator
+    @file symboltable.h
+    @author Tyler Clark
+    @date 10/12/20
+*/
 
 #ifndef PROJECT2_SYMBOLTABLE_H
 #define PROJECT2_SYMBOLTABLE_H
@@ -20,6 +23,7 @@ public:
     void reset() { elements.clear(); }
 
 private:
+
     struct Symbol
     {
         Symbol(std::string variable, int value)
@@ -29,7 +33,7 @@ private:
         }
 
         std::string variable;
-        double value;
+        int value;
     };
 
     std::vector<Symbol> elements;

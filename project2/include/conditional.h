@@ -1,6 +1,9 @@
-//
-// Created by Tyler Clark on 10/9/20.
-//
+/**
+    CMSC 330 Asn 2: Expression evaluator
+    @file conditional.h
+    @author Tyler Clark
+    @date 10/12/20
+*/
 
 #ifndef PROJECT2_CONDITIONAL_H
 #define PROJECT2_CONDITIONAL_H

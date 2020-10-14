@@ -1,6 +1,9 @@
-//
-// Created by Tyler Clark on 9/29/20.
-//
+/**
+    CMSC 330 Asn 2: Expression evaluator
+    @file lessthan.h
+    @author Tyler Clark
+    @date 10/12/20
+*/
 
 #ifndef PROJECT2_LESSTHAN_H
 #define PROJECT2_LESSTHAN_H

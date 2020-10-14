@@ -1,6 +1,9 @@
-//
-// Created by Tyler Clark on 9/28/20.
-//
+/**
+    CMSC 330 Asn 2: Expression evaluator
+    @file times.h
+    @author Tyler Clark
+    @date 10/12/20
+*/
 
 #ifndef PROJECT2_TIMES_H
 #define PROJECT2_TIMES_H
